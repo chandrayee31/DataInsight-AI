@@ -1,4 +1,10 @@
-DataInsight AI
+# 🚀 DataInsight AI
+
+### AI-Powered Automated Data Analytics & Insight Engine
+
+---
+
+## 📌 Overview
 
 DataInsight AI is an AI-powered analytics service that automatically analyzes tabular datasets and generates business insights using automated exploratory data analysis (EDA) and a locally hosted large language model via Ollama.
 
@@ -6,7 +12,19 @@ The system allows users to upload a CSV dataset through a FastAPI endpoint. The 
 
 The project demonstrates how traditional data analytics pipelines can be combined with generative AI systems to automate data interpretation and decision-support reporting.
 
-Architecture Overview
+
+---
+
+## 🎬 Demo
+
+<p align="center">
+  <img src="readme_docs/datainsight_ai_GIF.gif" width="800"/>
+</p>
+
+---
+
+## 🏗️ Architecture Diagram
+```bash
 CSV Upload
    ↓
 FastAPI API
@@ -22,65 +40,81 @@ Ollama LLM
 Business Insights
    ↓
 JSON API Response
-Key Features
+```
+<p align="center">
+  <img src="readme_docs/datainsight_ai.gif" width="800"/>
+</p>
 
-CSV dataset upload via REST API
+---
 
-Automated data validation and preprocessing
+## ✨ Key Features
 
-Exploratory Data Analysis (EDA) using pandas
 
-Aggregation of sales, profit, quantity, and category-level metrics
+- Automated data validation and preprocessing
 
-Prompt orchestration for LLM-based interpretation
+- Exploratory Data Analysis (EDA) using pandas
 
-Business insight generation using Ollama
+- Aggregation of sales, profit, quantity, and category-level metrics
 
-Structured API responses with Pydantic models
+- Prompt orchestration for LLM-based interpretation
 
-Logging for production-style observability
+- Business insight generation using Ollama
 
-Docker containerization for deployment
+- Structured API responses with Pydantic models
 
-Tech Stack
+- Logging for production-style observability
 
-Python
+- Docker containerization for deployment
+---
 
-FastAPI
 
-pandas
 
-Pydantic
+## 📁 Project Structure
 
-Ollama (LLM)
-
-Uvicorn
-
-Docker
-
-Project Structure
-datainsight-ai
-│
+```bash
+datainsight-ai/
+├── Dockerfile
+├── README.md
 ├── app
+│   ├── api
+│   │   └── routes.py
+│   ├── config.py
 │   ├── main.py
+│   ├── models
+│   │   ├── request_models.py
+│   │   └── response_models.py
+│   ├── prompts
+│   │   └── insight_prompt.txt
+│   ├── script.ipynb
 │   ├── services
 │   │   ├── analysis_service.py
-│   │   ├── prompt_service.py
-│   │   └── llm_service.py
-│   │
-│   ├── models
-│   │   └── response_models.py
-│   │
+│   │   ├── file_service.py
+│   │   ├── llm_service.py
+│   │   └── prompt_service.py
 │   └── utils
-│       └── logger.py
-│
+│       ├── logger.py
+│       └── validators.py
 ├── data
 │   └── sample
-│
-├── Dockerfile
+│       ├── Groceries_dataset.csv
+│       ├── Online Retail.xlsx
+│       ├── ecommerce_sales_sample.csv
+│       ├── olist_customers_dataset.csv
+│       └── train.csv
+├── docs
+│   ├── api_examples.md
+│   └── architecture.md
+├── readme_docs
+│   ├── datainsight_ai.gif
+│   └── datainsight_ai_GIF.gif
 ├── requirements.txt
-└── README.md
-API Endpoints
+└── tests
+```
+
+---
+
+## API Endpoints
+```
 Health Check
 GET /health
 
@@ -108,59 +142,48 @@ Response Example:
  },
  "insights": "Executive Summary... Key Observations... Recommendations..."
 }
-How It Works
+```
+## How It Works
+- User uploads a CSV dataset.
 
-User uploads a CSV dataset.
+- The system validates the dataset and checks required columns.
 
-The system validates the dataset and checks required columns.
+- Pandas performs exploratory data analysis to compute key statistics.
 
-Pandas performs exploratory data analysis to compute key statistics.
+- A structured prompt is generated from the dataset summary.
 
-A structured prompt is generated from the dataset summary.
+- The prompt is sent to a locally hosted LLM via Ollama.
 
-The prompt is sent to a locally hosted LLM via Ollama.
+- The LLM produces human-readable business insights.
 
-The LLM produces human-readable business insights.
+- The API returns both the raw summary and generated insights.
 
-The API returns both the raw summary and generated insights.
+## ⚙️ Run Locally
 
-Running the Application Locally
-
-Install dependencies:
-
+```bash
 pip install -r requirements.txt
-
-Run the FastAPI server:
-
 uvicorn app.main:app --reload
+```
 
-Open the interactive API docs:
+---
 
-http://127.0.0.1:8000/docs
-Running with Docker
+## 🐳 Docker
 
-Build the image:
-
+```bash
 docker build -t datainsight-ai .
-
-Run the container:
-
 docker run -p 8000:8000 datainsight-ai
-Future Improvements
+```
 
-Excel dataset support
+---
+## 🚀 Future Improvements
 
-Visualization dashboards
+- 📊 Excel dataset support  
+- 📈 Visualization dashboards (Plotly / Streamlit)  
+- 🗄️ BigQuery / SQL data source integration  
+- 🤖 Anomaly detection using Machine Learning  
+- 🔍 RAG-based analytics assistant  
 
-BigQuery / SQL data source integration
+## 👩‍💻 Author
 
-Anomaly detection using machine learning
-
-RAG-based analytics assistant
-
-Human feedback loop for insight evaluation
-
-Author
-
-Chandrayee Kumar
-Python Developer | AI/ML Engineer | Data Systems Enthusiast
+Chandrayee Kumar  
+Python Developer | AI/ML Engineer
