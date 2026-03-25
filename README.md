@@ -35,7 +35,7 @@ Business Insights
 JSON API Response
 ```
 <p align="center">
-  <img src="readme_docs/datainsight_ai.gif" width="800"/>
+  <img src="readme_docs/Datainsight_AI.drawio.png" width="800"/>
 </p>
 
 ---
